@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new'
 
-  post '/signup', to: 'users#create'
+  post '/signup', to: 'users#create' # チュートリアルには無い
 
   get '/login', to: 'sessions#new'
 
@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   resources :users
 
   resources :account_activations, only: [:edit]
+
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
 end
