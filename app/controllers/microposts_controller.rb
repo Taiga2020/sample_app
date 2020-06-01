@@ -6,10 +6,18 @@ class MicropostsController < ApplicationController
     @micropost = current_user.microposts.build(micropost_params)
     if @micropost.save
       flash[:success] = "Micropost created!"
-      redirect_to root_url
+      redirect_to root_path
     else
+      # 候補1（teratail）
+      # @feed_items = current_user.feed.paginate(page: params[:page])
+      # render 'static_pages/home'
+      # 候補2（Railsチュートリアル）
       @feed_items = []
       render 'static_pages/home'
+      # 候補3（自作）
+      # @feed_items = []
+      # flash[:danger] = "Micropost can't be blank."
+      # redirect_to root_path
     end
   end
 
