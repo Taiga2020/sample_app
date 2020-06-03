@@ -1,0 +1,4 @@
+// _follow.html.erb
+$("#follow_form").html("<%= escape_javascript(render('users/follow')) %>");
+// _stats.html.erb
+$("#followers").html('<%= @user.followers.count %>');
